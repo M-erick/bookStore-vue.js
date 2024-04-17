@@ -28,11 +28,14 @@ const routes = [
     component:JobDetails,
     props:true
   },
-  //redirect
+
+  //if user enters path  all-jobs redirect to page jobs
   {
     path:'/all-jobs',
     redirect:'/jobs'
   },
+
+  
   //all 404
   {
     path:'/:catchAll(.*)',
