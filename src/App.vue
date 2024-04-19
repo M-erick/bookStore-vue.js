@@ -2,7 +2,8 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
-        <router-link :to="{name:'jobs'}" :class="{ active: currentRouteName === 'jobs' }">Jobs</router-link>
+        <router-link :to="{name:'jobs'}" :class="{ active: currentRouteName === 'jobs' }">Jobs</router-link> |
+        <router-link :to="{name:'employer'}">Employer</router-link>
 
   </nav>
   <button @click="redirect">Redirect</button>

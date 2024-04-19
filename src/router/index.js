@@ -4,6 +4,7 @@ import About from '../views/AboutView.vue'
 import Jobs from '../views/jobs/JobsView.vue'
 import JobDetails from '../views/jobs/JobDetail.vue'
 import NotFound from '../views/NotFound.vue'
+import Employer from '../views/Employer.vue'
 
 const routes = [
   {
@@ -21,6 +22,12 @@ const routes = [
     path:'/jobs',
     name:'jobs',
     component:Jobs
+  },
+  {
+    path:'/employer',
+    name:'employer',
+    component:Employer
+
   },
   {
     path:'/jobs/:id',

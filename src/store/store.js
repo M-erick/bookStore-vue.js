@@ -14,6 +14,10 @@ export default createStore({
 
     ]
   },
+  getters:{
+    
+
+  },
   mutations: {
     increment(state) {
       state.count++;

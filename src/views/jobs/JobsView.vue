@@ -1,6 +1,6 @@
 <template>
   <h1>
-    jobs
+     Available jobs
   </h1>
   <div v-for="job in jobs" :key="job.id" class="job">
    <router-link :to="{name:'JobDetails', params:{id:job.details}}">
@@ -15,7 +15,25 @@
 
 <script>
 export default {
+  data(){
+    return{
+      jobs:[]
+
+    }
+  },
+
+  mounted(){
+    fetch('http://localhost:3000/jobs')
+    .then(response=>response.json())
+    .then(data=> this.jobs =data) //assigning the fetched data to the jobs array 
+
+    .catch(error=>error.message)
+
+  },
+
+
     computed:{
+      // accessing the store :implementing
       jobs(){
         return this.$store.state.jobs
       }
@@ -33,6 +51,7 @@ export default {
   max-width: 600px;
   cursor: pointer;
   color: #444;
+  font-size: bold;
 }
 .job h2:hover {
   background-color: #ddd;
