@@ -13,6 +13,9 @@
 </template>
 <script>
 export default {
+  setup(){
+    return {}
+  },
   methods:{
     redirect(){
       this.$router.push({name:'Home'})
@@ -69,7 +72,7 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  background-color: crimson;
+  background-color: rgb(47, 162, 87);
 }
 button{
   margin: 0 10px;

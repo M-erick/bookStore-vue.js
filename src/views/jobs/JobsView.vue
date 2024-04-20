@@ -14,18 +14,23 @@
 </template>
 
 <script>
+import { computed, ref } from 'vue'
+
 export default {
-  data(){
-    return{
-      jobs:[]
+  setup(){
 
-    }
-  },
+const jobs =ref([])
+const job = computed(()=>{
+          return $store.state.jobs
 
-  mounted(){
+
+})
+return {jobs,job}
+  },  
+ mounted(){
     fetch('http://localhost:3000/jobs')
     .then(response=>response.json())
-    .then(data=> this.jobs =data) //assigning the fetched data to the jobs array 
+    .then(data=> jobs.value =data) //assigning the fetched data to the jobs array 
 
     .catch(error=>error.message)
 

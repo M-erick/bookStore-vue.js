@@ -18,23 +18,32 @@
 
 <script>
 import axios from  'axios'
+import { ref } from 'vue'
 export default {
     name:"Employer",
-    data(){
-        return{
-            data:''
-        }
-    },
-    mounted(){  //hook
-        axios.get('http://dummy.restapiexample.com/api/v1/employees')
-        .then((response)=>{
-            this.data = response.data.data
+    setup(){
+        const data = ref('')
+        
+        return{data }
 
-        })
-        .catch(error=>{
-            console.log(error.message)
-        })
+    },
+   
+    methods:{
+
+    },
+    async created(){  //hook
+    try{
+        const response = await axios.get('http://dummy.restapiexample.com/api/v1/employees')
+        data.value = response.data.data
+
+
+    }catch(error){
+        console.log(error)
+
     }
+    }
+
+       
 
 }
 </script>
