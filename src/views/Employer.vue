@@ -21,10 +21,13 @@ import axios from  'axios'
 import { ref } from 'vue'
 export default {
     name:"Employer",
-    setup(){
-        const data = ref('')
+    data(){
+        return{
+            data:''
+
+
+        }
         
-        return{data }
 
     },
    
@@ -34,7 +37,7 @@ export default {
     async created(){  //hook
     try{
         const response = await axios.get('http://dummy.restapiexample.com/api/v1/employees')
-        data.value = response.data.data
+        this.data= response.data.data
 
 
     }catch(error){
